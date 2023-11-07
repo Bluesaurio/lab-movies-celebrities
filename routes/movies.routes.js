@@ -49,7 +49,7 @@ router.post("/create", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
-    const response = await Movie.findById(req.params.id).populate("celebrity");
+    const response = await Movie.findById(req.params.id).populate("cast");
     res.render("movies/movie-details.hbs", {
       oneMovie: response,
     });
@@ -58,5 +58,15 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+// POST "/movies/:id/delete" borra una película por su ID y redirecciona al usuario
+
+router.post("/:id/delete", async (req, res, next) => {
+  try {
+    await Movie.findByIdAndDelete(req.params.id);
+    res.redirect("/movies");
+  } catch (error) {
+    next(error);
+  }
+});
 //
 module.exports = router;

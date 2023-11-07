@@ -8,12 +8,21 @@
         <br>
         <p>Trama: {{this.oneMovie.plot}}</p>
         <br>
+        <p>Reparto: </p>
         {{#each this.oneMovie.cast}}
-            <p>Reparto: {{this.name}}</p>
-            <br>
+
+            <p>{{this.name}}</p>
             <p>Ocupación: {{this.occupation}}</p>
-            <br>
             <p>Frase destacada: {{this.catchPhrase}}</p>
+            <br>
         {{/each}}
+
+
+        <form action="/movies/{{this.oneMovie._id}}/delete" method="post">
+        
+        <button>Borrar</button>
+     
+        
+        </form>
 
 </div>
