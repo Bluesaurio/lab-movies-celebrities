@@ -1,0 +1,19 @@
+<div>
+
+    <h2>Detalles de la película</h2>
+
+        <p>Título: {{this.oneMovie.title}}</p>
+        <br>
+        <p>Género: {{this.oneMovie.genre}}</p>
+        <br>
+        <p>Trama: {{this.oneMovie.plot}}</p>
+        <br>
+        {{#each this.oneMovie.cast}}
+            <p>Reparto: {{this.name}}</p>
+            <br>
+            <p>Ocupación: {{this.occupation}}</p>
+            <br>
+            <p>Frase destacada: {{this.catchPhrase}}</p>
+        {{/each}}
+
+</div>
