@@ -68,5 +68,19 @@ router.post("/:id/delete", async (req, res, next) => {
     next(error);
   }
 });
+
+// GET "/movies/:id/edit" formulario para editar pelicula y redirige a detalles de la pelicula
+
+router.get("/:id/edit", async (req, res, next) => {
+  try {
+    const movieToEdit = await Movie.findById(req.params.id);
+    //const celebCast = Celebrity.find().populate("cast");
+    res.render("movies/edit-movie.hbs", movieToEdit);
+    console.log(movieToEdit);
+  } catch (error) {
+    next(error);
+  }
+});
+
 //
 module.exports = router;
